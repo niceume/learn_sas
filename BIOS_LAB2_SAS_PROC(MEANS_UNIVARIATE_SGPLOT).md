@@ -40,6 +40,60 @@ PROC MEANS data = bios500.heart n nmiss; /* shows number of missing values*/
 RUN;
 ~~~
 
+* OUTPUT statement : Output to dataset. Usually you are happy if you use with <statistic>=<variable>
+  + options : out=<dataset> specifies the dataset name to ouput.
+  + options : <statistic>=<variable> adds a value of statistic to variable . e.g. sum, mean, std, uclm(upper confidence limit for population mean), lclm.
+  + If you don't use <statistic>=<variable> option, the default statistics, n mean std min max are displayed in a longitudinal direction.
+  + If you use <statistic>=<variable> option, the statistics 
+
+~~~ SAS
+data test;
+ input name $ address $ pay age ;
+ datalines;
+ toshi briarcliff 12 32
+ toshi tokyo 100 32
+ yuji briarcliff 8 30
+ yuji tokyo 20 30
+ hatena kyoto 10 28
+ hatena tokyo 20 28
+ ; 
+run;
+
+PROC MEANS data=test;
+ class name;
+ output out=temp; /* Usually used with <statistic>=<variable> option. */
+RUN;
+
+PROC MEANS data=test;
+ class name;
+ output out=temp sum=sum mean=avg uclm=upper lclm=lower;
+RUN;
+~~~
+
+The dataset of temp
+* The _TYPE_ = 0 means the statistics of total.
+
+| Obs | name | _TYPE_ | _FREQ_ | _STAT_ | pay | age | 
+|-----|--------|-----|-------|-------|--------|------
+| 1   |        | 0   |   6   |  N    | 6.000  | 6.0000 
+| 2   |        | 0   |   6   |  MIN  | 8.000  | 28.0000 
+| 3   |        | 0   |   6   |  MAX  | 100.000| 32.0000 
+| 4   |        | 0   |   6   |  MEAN | 28.333 | 30.0000 
+| 5   |        | 0   |   6   |  STD  | 35.472 | 1.7889 
+| 6   | hatena | 1   |   2   |  N    | 2.000  | 2.0000 
+| 7   | hatena | 1   |   2   |  MIN  | 10.000 | 28.0000 
+| 8   | hatena | 1   |   2   |  MAX  | 20.000 | 28.0000 
+| 9   | hatena | 1   |   2   |  MEAN | 15.000 | 28.0000 
+| 10  | hatena | 1   |   2   |  STD  | 7.071  | 0.00000 
+
+The dataset of temp2 (This output is easy to use.)
+
+|Obs | name | _TYPE_ | _FREQ_ | sum | avg | upper | lower 
+|----|------|--------|--------|-----|-----|-------|------
+|1   |      |  0     |    6   |170  |28.3333| 65.559| -8.892 
+|2   |hatena|  1     |    2   |30   |15.0000| 78.531| -48.531 
+|3   |toshi |  1     |    2   |112  |56.0000| 615.073| -503.073 
+|4   |yuji  |  1     |    2   |28   |14.0000| 90.237| -62.237 
 
 
 UNIVARIATE procedure (histogram, boxplot)
@@ -91,11 +145,16 @@ This is a procedure to display various plots. This time, we will create a boxplo
   + option : LABEL= statement
   + MIN=, MAX=, TYPE=LOG, LOGBASE=, VALUES=(value1 TO value2)
 * TITLE statement
+* REFLINE Statement
+  + REFLINE <num> , REFLINE "<DATEFORMAT>" etc.
+  + options come after slash(/).
+  + axis= x or y. axis= x draws a line which is orthogonal to xaxis.
+
 
 ~~~ SAS
 PROC sgplot data = bios500.exposure;
 vbox height / category = sex;
-yaxis label="Height in inches";
+yaxis label="Height in inches" min=55 max= 75;
 xaxis label="sex";
 title "Distribution of height by sex";
 RUN;
@@ -114,7 +173,7 @@ We can create histogram.
   + The CATEGORY option cannot be used as VBOX statement.
   + X2AXIS, Y2AXIS, LEGENDLABEL= options can be used.
 * XAXIS, YAXIS can be used.
-* TITLE statement can be used.
+* TITLE, REFLINE statement can be used.
 
 
 
