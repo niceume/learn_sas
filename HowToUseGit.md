@@ -39,7 +39,7 @@ git status
 
 ## Update file (Commit to local, Push to remote)
 ``` bash
-git commit -a -m "add read me."
+git commit -a -m "modify read me."
 git push origin master
 ```
 
