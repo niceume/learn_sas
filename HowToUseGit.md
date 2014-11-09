@@ -10,7 +10,7 @@ git add README.md
 git commit -m 'First commit'
 
 git config --global user.name '<username>'
-git config --global user.mail '<emailaddress>'
+git config --global user.email '<emailaddress>'
 ```
 
 
@@ -54,3 +54,14 @@ If you try to add all the files, instead use as follows.
 ``` bash
 git add .
 ```
+
+
+Trouble Shooting
+----------------
+
+When the commit is not recognized as your commit. Do the following commands again.
+```
+git config --global user.name '<username>'
+git config --global user.email '<emailaddress>'
+```
+
