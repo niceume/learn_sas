@@ -45,13 +45,27 @@ RUN;
 Creating a New Categorical Variable Automatically for numeric data.
 -------------------------------------------------------------------
 
-PROC RANK statement can be used to categorize 
+PROC RANK statement can be used to categorize observations.
+It is done based on values of variable specified by "VAR statement".
+The new variable specified by "RANKS statement" will be added. And the variable has values from 0 to number of groups specified by "GOUPS=" option.
+
+* PROC RANK statement
+  + options : DATA= specifies input dataset
+  + options : OUT=  specifies ouput dataset
+  + options : GROUPS=  specifies number of categories.
+* VAR statement in PROC RANK
+  + specifies variable by which observations are categorized.
+* RANKS statement in PROC RANK
+  + specifies new variable which has categorization number.
 
 ~~~ SAS
-PROC RANK DATA=temp OUT=DividedTemp GROUPS=3;
+PROC RANK DATA=temp OUT=DividedTempDataset GROUPS=3;
  VAR WEIGHT;
  RANKS WT_LEV3;
-RUN; 
+RUN;
+
+/*The output dataset has WT_LEV3 variable. It has 0 to 2 value based on the value of WEIGHT.*/ 
+
 ~~~
 
 
@@ -70,3 +84,6 @@ YEAR( num )
 MONTH( num )
 DAY( num )
 age = INT( (DAY1 - DAY2) / 365.25 );
+
+
+YYMMDD8.

@@ -6,8 +6,9 @@ Creating a New Dataset from a scratch
 INPUT, DATALINES statements are used. 
 
 INPUT staement can be used with DATALINES or INFILE.
-DATALINES statement can 
-INFILE statement can 
+DATALINES statement allows data directly written in source code.
+INFILE statement can import text file (such as CSV).
+IMPORT Function (from GUI) can import excel file.
 
 * INPUT satement
   + INPUT statement can speccify how data can be read.

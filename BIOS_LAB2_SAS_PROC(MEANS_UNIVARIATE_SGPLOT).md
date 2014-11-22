@@ -185,6 +185,7 @@ The SGPLOT procedure can also create scatterplot.
 * PROC SGPLOT statement
 * SCATTER statement
   + option X=, Y= specify which variable to use as an x-axis and y-axis.
+  + option /group=<variable> specify which variable to use as group.
 * Other options are the same as BOXPLOT option in SGPLOT
 
 ~~~ SAS
@@ -193,6 +194,11 @@ scatter x=age y=weight;
 yaxis label="Height in inches";
 xaxis label="sex";
 RUN;
+
+proc sgplot data=iris;
+  title 'Fisher (1936) Iris Data';
+  scatter x=petallength y=petalwidth / group=species;
+run;
 ~~~
 
 

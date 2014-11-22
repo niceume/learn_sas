@@ -55,6 +55,15 @@ If you try to add all the files, instead use as follows.
 git add .
 ```
 
+## Update, add, delete new changes
+You will have to do git add -A to add all files new files, changes and removed files. 
+``` bash
+git add -A
+git commit -m "many changes"
+git push origin master
+```
+
+
 
 Trouble Shooting
 ----------------

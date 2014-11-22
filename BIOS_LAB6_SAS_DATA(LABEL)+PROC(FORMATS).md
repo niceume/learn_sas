@@ -75,6 +75,18 @@ RUN;
 ~~~
 
 
+FORMATS can be stored permanently
+---------------------------------
+
+~~~ SAS
+libname library "H:\EPI533\";  /* Under this directory, Formats directory is created, and assigned to "library". */
+PROC FORMAT library = library; /* By using library=library, the format is stored permanently */
+  value genderf 0 = 'female'
+                1 = 'male'  ;
+RUN;
+~~~
+
+
 Orders to be displayed
 ----------------------
 
@@ -88,3 +100,4 @@ Additional Point
 ----------------
 
 "How to Create a new dataset from a Scratch" is described in LAB1 note.
+

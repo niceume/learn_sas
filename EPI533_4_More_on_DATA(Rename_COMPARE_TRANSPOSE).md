@@ -3,7 +3,14 @@ Lab4
 Rename variable name
 --------------------
 
-RENAME statement is used in DATA Step. Refer to BIOS500.
+RENAME statement is used in DATA Step.
+
+~~~ SAS
+DATA temp;
+ set epi533.combined;
+ rename ill caco; /* New variable name is caco.*/
+RUN;
+~~~
 
 
 Labels defined and used.
