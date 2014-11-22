@@ -160,7 +160,7 @@ The samplesize is 11034, the event proportion (risk) in this sample is 1.71%.
 
 Do the 5 Steps in SAS
 
-~~ SAS
+~~~ SAS
 /* Step1 Hypothesis */
 /* H0 : p = 0.01 */
 /* HA : p not= 0.01 */
