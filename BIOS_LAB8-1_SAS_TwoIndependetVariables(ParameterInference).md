@@ -1,7 +1,7 @@
 Inference statistics (two independent variables)
 ===============================================
 
-Interpretation is like this.
+Interpretation of two means is like this.
 
 * The mean VARIABLE of A (mean= -- , SD= -- ) is higher than B (mean= --, SD= --)
   + (descriptive statistics)
@@ -10,7 +10,22 @@ Interpretation is like this.
 * The observed difference is statistically significant.(test-statistic= -- , p= -- )
   + (inferel statistics : hypothesis test)
 
-This interpretation can be based on procedures as follows.
+
+Interpretation of two proportions is like this.
+
+* Exposure-A are more likely than Exposure-B to outcome-Z ( --% vs --%). 
+  + (Exposure-A result in outcome-Z More frequently )
+  + OR
+  + Exposure-A do outcome-Z at hgher rate than Exposure-B ( --% vs --%).
+* There is a significant association between Exposure and Outcome.
+  + (inferel statistics : hypothesis test)
+* Exposure-A are --% less likely than exposure-B to outcome-z. (RR= ---, CI=--,-- )
+  + OR
+  + The risk (or the odds) of outcome-Z among exposure-A is --% lower than the risk (or the odds) among exposure-B. (OR= ---, CI=--,-- )
+
+
+
+These interpretations can be based on procedures as follows.
 
 Confidence interval (two numeric variables)
 -------------------------------------------
