@@ -6,11 +6,9 @@ These are two ways to infer populatoin parameter by sammple.
 2. Hypothesis test (p value)
 
 
-Confidence interval
-===================
 
-Confidence Interval of population mean
---------------------------------------
+Confidence Interval of population mean (one variable)
+-----------------------------------------------------
 
 Sample mean distributoin can be described under specific assumptoin as follow,
 
@@ -42,12 +40,12 @@ RUN;
 ~~~
 
 
-Confidence Interval of pupolatoin proportion
---------------------------------------------
+Confidence Interval of pupolatoin proportion (one variable)
+-----------------------------------------------------------
 
 (Assumption)
 * simple random sample
-* np > 10, n(1-p) > 10
+* np > 5, n(1-p) > 5
 
 (Distribution)
 1. #success ~ Bi ( n , p )
@@ -85,8 +83,8 @@ run;
 ~~~
 
 
-Hypothesis Test (p value)
-=========================
+Hypothesis Test (p value) Overview
+----------------------------------
 
 Step1 : Hypothesis
 Step2 : Assumption
@@ -195,3 +193,5 @@ RUN;
 /* At the 5% siginificant level, there is sufficient evidence to believe the population percentaeg of MI among placebo group is different from 0.01.*/
 
 ~~~
+
+

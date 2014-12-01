@@ -4,6 +4,7 @@ Creating Distibution
 Probability P(X < k) 
 1. "normal distribution" :  cdf("norm", x, mean, std )
 2. "standardized normal distribution"  :  PROBNORM(z)
+  + same as  :  cdf("norm" , z , 0 , 1) ;
 3. "binomial distribution" :  cdf("bino", n, p, k), PROBBNML(p, n, k)
 4. "poisson distribution"  :  cdf("POISSON" , n, lambda )
 

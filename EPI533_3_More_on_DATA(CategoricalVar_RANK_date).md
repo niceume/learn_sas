@@ -42,6 +42,26 @@ RUN;
 ~~~
 
 
+Creating an Order Variable for numeric data.
+--------------------------------------------
+
+PROC RNAK creates a new variable which represents the order of a variable.
+
+* PROC RANK statement
+  + options : DATA= specifies input dataset
+  + options : OUT=  specifies ouput dataset
+* VAR statement in PROC RANK
+* RANKS statement in PROC RANK
+  + specifies new variable which has order.
+
+~~~ SAS
+PROC RANK DATA=georgia_with_obs OUT=georgia_with_rank;
+ VAR AdultObs MedianIncome PhysInact FoodEnvIdx rural_prop;
+ RANKS AdultObsO MedianIncomeO PhysInactO FoodEnvIdxO RuralPropO;
+RUN;
+~~~
+
+
 Creating a New Categorical Variable Automatically for numeric data.
 -------------------------------------------------------------------
 
