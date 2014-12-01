@@ -7,7 +7,7 @@ Interpretation is like this.
   + (descriptive statistics)
 * ( The mean difference is --, 95% CI : --, -- )
   + (inferel statistics : confidence interval)
-* The observed difference is statistically significant.
+* The observed difference is statistically significant.(test-statistic= -- , p= -- )
   + (inferel statistics : hypothesis test)
 
 This interpretation can be based on procedures as follows.
