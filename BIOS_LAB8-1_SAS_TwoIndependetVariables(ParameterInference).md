@@ -1,6 +1,17 @@
 Inference statistics (two independent variables)
 ===============================================
 
+Interpretation is like this.
+
+* The mean VARIABLE of A (mean= -- , SD= -- ) is higher than B (mean= --, SD= --)
+  + (descriptive statistics)
+* ( The mean difference is --, 95% CI : --, -- )
+  + (inferel statistics : confidence interval)
+* The observed difference is statistically significant.
+  + (inferel statistics : hypothesis test)
+
+This interpretation can be based on procedures as follows.
+
 Confidence interval (two numeric variables)
 -------------------------------------------
 
@@ -28,6 +39,7 @@ DATA temp;
 PROC PRINT;
 RUN;
 /* -0.49492 -0.92668 */ 
+/* We can be 95% confident that the difference between VARIABLEs(SBPs) of A and B is somewhere between -0.4942 and -9.2668 */
 ~~~
 
 This confidence interval can be calcuted in one step by using "PROC TTEST"
@@ -145,7 +157,8 @@ RUN;
 /* p value is 1.982E-10 */
 
 /* Step5 : conclusion */
-/* At the 5% significant level, there is a significant difference in mean FEVs between smoking children and nonsmoking children.*/
+/* At the 5% significance level, there is a significant difference in mean FEVs between smoking children and nonsmoking children.*/
+/* The important point in interpretation is that we compare means. */
 ~~~~
 
 The same thing can be done by one step by using "PROC TTEST"
@@ -171,7 +184,7 @@ Comparing two population proportions of two variables.
 
 ~~~ SAS
 /* Step1 : Hypothesis */
-/* H0 :  p1 = p2 */
+/* H0 :  p1 = p2. In English there are no association between A and B. */
 /* H1 :  p1 not= p2 */
 
 /* Step2 : Assumption */
@@ -198,7 +211,8 @@ RUN;
 /* Step5 : Conclusion */
 /* alpha = 0.01 */
 /* p value is 0.54. This is much larger than the alpha. */
-/* At the level of 5% significance, there is not sufficient evidence to believe that the fatal proportions are different among the group with seatbelt and the group without it.*/
+/* At the level of 5% significance, there is not sufficient evidence to believe that there is an association between A(seatbelt) and B(injury)*/
+/* The important point in interpretation is that we checked the association . */
 ~~~
 
 
@@ -221,7 +235,7 @@ DATA q1confirm;
 RUN;
 PROC FREQ data=q1confirm  ;
  weight count;
- tables seatbelt * injury /nocol norow nopercent expected chisq relrisk alpha=0.01;
+ tables seatbelt * injury /nocol nopercent expected chisq relrisk alpha=0.01; /*row percents should be printed out.*/
 RUN;
 /*The same answer.*/
 ~~~

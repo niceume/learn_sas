@@ -41,9 +41,11 @@ Use "twosamplemeans" statement.
 ~~~ SAS
 proc power;
  twosamplemeans
- /* TEST = diff /*This is default option.*/ */
- groupmeans = (0 5)  /* Assumed Hypothesis. Null hypothesis is zero difference. */
- ntotal = .  /* sample size */
+ /* TEST = diff : This is default option.*/
+ meandiff = 2 /* Assumed Hypothesis. Null hypothesis is zero difference. */
+ /* groupmeans = (0 5) can be used.  */
+ npergroup = .  /* sample size */
+ /* ntotal = . : total sample size instead of npergroup= */
  stddev = 17
  power = 0.90
  alpha = 0.01

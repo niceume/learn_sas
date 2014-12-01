@@ -72,17 +72,18 @@ Background (ANOVA) ??
 
 There are k groups. n_1, n_2 ... n_k. barx_1, barx_2 ... barx_k.
 
+* SST = SUM of all obs of (total error)^2
 * SSR (between) = SUM of all obs of (group effect)^2
-* SSE (within) =  SUM of all obs of (error)^2
+* SSE (within) =  SUM of all obs of (within_error)^2
   + Each ob = total average + group effect + error
 
-Hypotheis : All the groups have the same population mean <= group effect of sample and error of each sample follow the same spread of normal distribution. (same population std. sigma_group = sigma_error)
+Hypotheis : All the groups have the same population mean <= group effect of each group = 0. ( sigma_error = sigma_total_error )
 
-* SSR / sigma_group ^2
+* (SST - SSE) / sigma_total_error^2 = SSR / sigma_total_error^2
 * SSE / sigma_error ^2
 follow chi-square distributions.
 
-* ( SSR / sigma_group^2 / df of SSR ) / ( SSE / sigma_group^2 / df of SSE ) ~ F (df of SSR , df of SSE)
+* ( SSR / sigma_total_error^2 / df of SSR ) / ( SSE / sigma_error^2 / df of SSE ) ~ F (df of SSR , df of SSE)
 * = ( SSR / df of SSR ) / ( SSE / df of SSE ) 
 * Therefore MSR / MSE ~ F( df of SSR , df of SSE )
 
