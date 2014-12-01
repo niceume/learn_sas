@@ -37,13 +37,13 @@ such as might be found in the case where the two proportions are based on the sa
 or on matched-pair samples
 
 
-|   |  XY |||
-|-----------------------|
+|   |  XY |      |      | 
+|---|-----|------|------|
 |XX | S   | S'   | Total|
-|-----------------------|
+|---|-----|------|------|
 |S  |   2 |   9  |  11  |
 |S' |   1 |   3  |  4   |
-|-----------------------|
+|---|-----|------|------|
 |Total | 3 |  12 |  15  |
 
 + p1hat = 3 / 15 = 0.2
