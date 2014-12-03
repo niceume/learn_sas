@@ -13,15 +13,15 @@ Interpretation of two means is like this.
 
 Interpretation of two proportions is like this.
 
-* Exposure-A are more likely than Exposure-B to outcome-Z ( --% vs --%). 
+* Exposure-A are more likely than Exposure-B to do outcome-Z ( --% vs --%). 
   + (Exposure-A result in outcome-Z More frequently )
   + OR
   + Exposure-A do outcome-Z at hgher rate than Exposure-B ( --% vs --%).
 * There is a significant association between Exposure and Outcome.
   + (inferel statistics : hypothesis test)
-* Exposure-A are --% less likely than exposure-B to outcome-z. (RR= ---, CI=--,-- )
+* Exposure-A are --% less likely than exposure-B to outcome-z. (RR = ---, CI=--,-- )
   + OR
-  + The risk (or the odds) of outcome-Z among exposure-A is --% lower than the risk (or the odds) among exposure-B. (OR= ---, CI=--,-- )
+  + The risk (or the odds) of outcome-Z among exposure-A is --% lower than the risk (or the odds) among exposure-B. (RR or OR= ---, CI=--,-- )
 
 
 
@@ -119,7 +119,7 @@ DATA q1confirm;
 RUN;
 PROC FREQ data=q1confirm  ;
  weight count;
- tables seatbelt * injury /nocol norow nopercent expected chisq relrisk alpha=0.01;
+ tables seatbelt * injury /nocol nopercent expected chisq relrisk alpha=0.01;
 RUN;
 /*The same answer.*/
 ~~~
