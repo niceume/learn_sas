@@ -147,9 +147,10 @@ Contiuous vs continuous
 =======================
 
 T-test can only deal with categorical variable of two values. 
--------------------------------------------------------------
+
 
 7. BMI = beta0 + beta1 (AGE - 17) + error
+-----------------------------------------
 
 ### meaning of coefficient
 * beta0 = mean BMI of 17 yo.
