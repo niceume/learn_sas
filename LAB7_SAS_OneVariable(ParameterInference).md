@@ -90,11 +90,11 @@ run;
 Hypothesis Test (p value) Overview
 ----------------------------------
 
-Step1 : Hypothesis
-Step2 : Assumption
-Step3 : Calculate test statistics
-Step4 : Calculate p-value
-Step5 : Conclusion
+* Step1 : Hypothesis
+* Step2 : Assumption
+* Step3 : Calculate test statistics
+* Step4 : Calculate p-value
+* Step5 : Conclusion
 
 
 Hypothesis Test for Population Mean
@@ -201,4 +201,4 @@ RUN;
 
 Do the same thing in one code.
 
-
+SAS code is the same as confidence interval for one variable proportion.
