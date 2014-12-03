@@ -12,9 +12,9 @@ Linear regression and t-test are not so much as mathematically identical but the
 
 
 Compare arighmetic means
--------------------------
+========================
 1. BMI = beta0 + error
-
+---------------------
 
 ### meaning of coefficient
 * beta0 is mean BMI
@@ -34,6 +34,7 @@ corresponds to
 
 
 2. BMI = beta0 + beta1 MALE + error
+-----------------------------------
 
 ### meaning of coefficient
 * beta0 = mean BMI when FEMALE
@@ -53,13 +54,14 @@ All the coefficient beta has null hypothesis.
 
 
 Compare geometric means
--------------------------
+=======================
 
 When to use logarighmic transformation ?? 
 
 It's when there is an outlier or extreme value.
 
 3. log(BMI) = beta0 + error
+---------------------------
 
 ### meaning of coefficient
 * exp(beta0) = geometric mean BMI
@@ -75,6 +77,7 @@ c. Exponential the point estimate and CIs.
 
 
 4. log(BMI) = beta0 + beta1 MALE + error
+----------------------------------------
 
 ### meaning of coefficient
 * exp(beta0) = geometric mean BMI when FEMALE 
@@ -96,8 +99,9 @@ because, confidence interval of (beta0 + beta1) which iS GM(BMI) of males cannot
 
 
 Paired variables (paired samples)
----------------------------------
+=================================
 5. BMIpost - BMIpre = beta0 + error 
+------------------------------------
 
 ### meaning of coefficient
 * beta0  = mean change in BMI
@@ -117,7 +121,7 @@ corresponds to
 
 
 6. BMIpost - BMIpre = beta0 + beta1 MALE + error
-
+------------------------------------------------
 
 ### meaning of coefficient
 * beta0 = mean change in BMI among FEMALEs
@@ -140,9 +144,10 @@ All the coefficient beta has null hypothesis.
 
 
 Contiuous vs continuous 
-------------------------
+=======================
 
 T-test can only deal with categorical variable of two values. 
+-------------------------------------------------------------
 
 7. BMI = beta0 + beta1 (AGE - 17) + error
 
@@ -164,9 +169,11 @@ The good point of correlation is that it is no affected by units.
 * PROC CORR (var BMI AGE)
 
 
-Modified by another variable.
------------------------------
+Modified by another variable
+=============================
+
 8. BMI = beta0 + beta1 (AGE - 17) + beta2 FH + error
+-----------------------------------------------------
 
 ### meaning of coefficient 
 * beta0 = mean BMI of 17 yo without FH
@@ -179,6 +186,7 @@ One important notification.
 
 
 9. BMI = beta0 + beta1 (AGE - 17) + beta2 FH + beta3 (AGE-17) FH + error
+------------------------------------------------------------------------
 
 ### When FH = 0
 
