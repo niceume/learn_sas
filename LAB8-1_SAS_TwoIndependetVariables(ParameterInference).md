@@ -22,6 +22,7 @@ Interpretation of two proportions is like this.
 * Exposure-A are --% less likely than exposure-B to outcome-z. (RR = ---, CI=--,-- )
   + OR
   + The risk (or the odds) of outcome-Z among exposure-A is --% lower than the risk (or the odds) among exposure-B. (RR or OR= ---, CI=--,-- )
+  + (inferel statistics : confidence interval)
 
 
 
