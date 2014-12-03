@@ -1,6 +1,21 @@
 Inference statistics (two paired variables)
 ===========================================
 
+Interpretation of hypothesis test for paired variables.
+
+(Paired T-test)
+* The mean VARIABLE of A (mean= -- , SD= -- ) is higher than B (mean= --, SD= --) (mean difference is ---, 95% CI= --, -- )
+  + descriptive statistics
+* There is sufficient evidence to believe that the OUTCOME difference is significant. (T= ---, p=---)
+
+
+(McNemer's Test)
+* -- % did --. -- % did --.
+  + descriptive statistics
+* There is sufficient evidence to believe that OUTCOME differs on two EXPOSUREs. (S= ---, p=---)
+
+
+
 Compare Two paired means (same as One sample t-test)
 ----------------------------------------------------
 
