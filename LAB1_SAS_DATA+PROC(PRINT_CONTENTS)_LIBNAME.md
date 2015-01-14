@@ -9,7 +9,7 @@ Assign a libref name to a directory. Moreover, once assign a library name, the l
 
 
 ~~~ SAS
-LIBNAME bios500 "S:\course\bios500\Binongo\DATASETS" ;
+LIBNAME bioslib "S:\course\bios500\Binongo\DATASETS" ;
 ~~~
 
 
@@ -44,7 +44,7 @@ DATASET immediate modification
 Dataset can be modified easily by using ( ) options.
 
 ~~~ SAS
-PROC PRINT bios500.exposure ( obs = 10 )  
+PROC PRINT data=bioslib.exposure ( obs = 10 )  
 /* This (obs=10) is an option of dataset. Not an option of PROC PRINT. */
 ~~~
 
@@ -69,10 +69,10 @@ CONTENTS procedure
   + VARNUM, POSITION options show observations in the order in which they were created (rather than the default alphabetical organization.)
 
 ~~~ SAS
-PROC CONTENTS DATA=bios500.exposure;
+PROC CONTENTS DATA=bioslib.exposure;
 RUN;
 
-PROC CONTENTS DATA=bios500.exposure POSITION;
+PROC CONTENTS DATA=bioslib.exposure POSITION;
 RUN;
 ~~~
 
@@ -88,10 +88,10 @@ PRINT procedure
 * VAR (variable_name1) -- (variable_name2) statement : PRINT from variable_name1 to variable_name2. If variable_name2 is left to 1, it raises an error.
   
 ~~~ SAS
-PROC PRINT DATA=bios500.exposure;
+PROC PRINT DATA=biosdata.exposure;
 RUN;
 
-PROC PRINT DATA=bios500.exposure;
+PROC PRINT DATA=biosdata.exposure;
 var id--age;  /*cf. age--id is not allowed. */
 RUN;
 ~~~

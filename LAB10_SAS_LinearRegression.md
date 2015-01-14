@@ -58,7 +58,9 @@ Compare geometric means
 
 When to use logarighmic transformation ?? 
 
-It's when there is an outlier or extreme value.
+It's when 
+* there is an outlier or extreme value.
+* the underlying distribution is right skewed distribution.
 
 3. log(BMI) = beta0 + error
 ---------------------------
@@ -104,6 +106,10 @@ Paired variables (paired samples)
 ------------------------------------
 
 ### meaning of coefficient
+
+Basically coefficient means the difference of means between groups of its variable 1 unit apart. And the p value output by SAS is calculated under the hypothesis that the difference is 0.
+
+
 * beta0  = mean change in BMI
 
 
@@ -126,7 +132,7 @@ corresponds to
 ### meaning of coefficient
 * beta0 = mean change in BMI among FEMALEs
 * beta0 + beta1  = mean change in BMI among MALEs
-* beta1 = difference in mean BMI btw two groups of MALEs and FEMALEs
+* beta1 = difference in mean BMI change btw two groups of MALEs and FEMALEs
 
 
 ### Null Hypothesis
@@ -177,6 +183,14 @@ Modified by another variable
 -----------------------------------------------------
 
 ### meaning of coefficient 
+When FH = 0
+
+BMI = beta0 + beta1 (AGE - 17)
+
+When FH = 1
+
+BMI = (beta0 + beta2) + beta1 (AGE - 17)
+
 * beta0 = mean BMI of 17 yo without FH
 * beta1 = difference in mean BMI btw two groups of people that are 1 year apart.(With FH or without FH is the same )
 * beta0 + beta2 = mean BMI of 17 yo with FH

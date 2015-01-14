@@ -79,7 +79,7 @@ FORMATS can be stored permanently
 ---------------------------------
 
 ~~~ SAS
-libname library "H:\EPI533\";  /* Under this directory, Formats directory is created, and assigned to "library". */
+libname library "H:\EPIDMIOLOGY\";  /* Under this directory, Formats directory is created, and assigned to "library". */
 PROC FORMAT library = library; /* By using library=library, the format is stored permanently */
   value genderf 0 = 'female'
                 1 = 'male'  ;

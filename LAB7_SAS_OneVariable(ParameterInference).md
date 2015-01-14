@@ -6,6 +6,23 @@ These are two ways to infer populatoin parameter by sammple.
 2. Hypothesis test (p value)
 
 
+Before Calculation : Interpretation of Confidence Interval
+----------------------------------------------------------
+
+Confidence interval is "an inference for population parameter".
+
+Suppose the point estimate of population mean is 85 and the 95% confidence interval is (80, 90), what does it mean?
+
+* False : If repeatedly sample observations and calculate their means, they lie within (80, 90) at the probability of 95%.
+  + Because the CI is an estimate for population mean, not for sample mean. 
+* False : There is a 95% chance that the ture mean lies between the confidence interval (80 90).
+  + Because the ture mean is already set. Whether it lies within 80 to 90 is 0% or 100%.
+* False : 95% of all observations' means lie in (80, 90)
+  + Not about each observation but mean. Moreover, not for sample but for population.
+* True : I have 95% confidence that the population mean lies within (80, 90).
+* True : If we take 100 samples, 95 times we can get a confidence interval which covers population mean. However, this (80, 90) may not be the one, or (80 90) may not cover the population mean. If I can choose one from 100 CIs, the possiblity to cover the true(population ) mean is 95%, but where (80, 90) CI covers the true mean is 0% or 100%.
+
+
 
 Confidence Interval of population mean (one variable)
 -----------------------------------------------------

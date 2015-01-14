@@ -22,20 +22,21 @@ Show measures about continuous data.
   + options : nmiss means number of missing values. mode means most frequent value.
   + options : q1 and q3 mean 1st quartile(=25percentile) and 3rd quartile(=75 percentile). QRANGE means Quartile range.
   + options : p1 p5 p10 p90 p95 p99 mean percentils.
+  + options : clm  :  confidence interval of mean
 * VAR statement  :  Indicate which variables to use.
 * CLASS statement  :  The variable is dealt as categorical variable.(Works for characters and numerical data.)
 * BY statement  : It's like CLASS statement but it's hard to use because the variable has to be sorted or have some manner in the order.
 
 ~~~ SAS
-PROC MEANS data=bios500.exposure;
+PROC MEANS data=bioslib.exposure;
 RUN ;
 
-PROC MEANS data=bios500.exposure n nmiss mean std min q1 median q3 max maxdec=2;
+PROC MEANS data=bioslib.exposure n nmiss mean std min q1 median q3 max maxdec=2;
 var height;
 class age;
 RUN;
 
-PROC MEANS data = bios500.heart n nmiss; /* shows number of missing values*/
+PROC MEANS data = bioslib.heart n nmiss; /* shows number of missing values*/
   var cholesterol;
 RUN;
 ~~~
@@ -113,17 +114,17 @@ Each variable has its distribution and it can be showed by using "histogram" or 
   + MEAN option shows mean value in an inset box.
 
 ~~~ SAS
-PROC UNIVARIATE DATA=bios500.exposure;
+PROC UNIVARIATE DATA=bioslib.exposure;
 var height;
 RUN;
 
-PROC UNIVARIATE DATA=bios500.exposure plot;
+PROC UNIVARIATE DATA=bioslib.exposure plot;
 var height;
 histogram height / normal;  /* For continuous data */
 class sex;
 RUN;
 
-PROC UNIVARIATE DATA=bios500.exposure plot;
+PROC UNIVARIATE DATA=bioslib.exposure plot;
 var height;
 class sex;
 inset mean;
@@ -152,7 +153,7 @@ This is a procedure to display various plots. This time, we will create a boxplo
 
 
 ~~~ SAS
-PROC sgplot data = bios500.exposure;
+PROC sgplot data = bioslib.exposure;
 vbox height / category = sex;
 yaxis label="Height in inches" min=55 max= 75;
 xaxis label="sex";
@@ -189,7 +190,7 @@ The SGPLOT procedure can also create scatterplot.
 * Other options are the same as BOXPLOT option in SGPLOT
 
 ~~~ SAS
-PROC SGPLOT DATA=bios500.exposure;
+PROC SGPLOT DATA=bioslib.exposure;
 scatter x=age y=weight;
 yaxis label="Height in inches";
 xaxis label="sex";
@@ -198,6 +199,26 @@ RUN;
 proc sgplot data=iris;
   title 'Fisher (1936) Iris Data';
   scatter x=petallength y=petalwidth / group=species;
+run;
+
+/* Exclude missing values 1 */
+PROC SGPLOT data=bioslib.obesity;
+scatter y=sbp x=dbp /group=high_obese nomissinggroup ;
+run;
+/* http://support.sas.com/documentation/cdl/en/grstatproc/65235/HTML/default/viewer.htm#p1lcbd3lhs3t3bn1jk6d8sjt2yqx.htm */
+
+/* Exclude missing values 2 */
+/* Put regrassion lines*/
+PROC SGPLOT data=bioslib.obesity;
+reg y=sbp x=dbp /group=high_obese ;
+where high_obese;
+run;
+
+/* Split into two panels */
+PROC SGPanel data=bioslib.obesity;
+panelby high_obese / novarname ;
+reg y=sbp x=dbp ;
+where high_obese;
 run;
 ~~~
 

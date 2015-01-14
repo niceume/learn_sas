@@ -1,8 +1,7 @@
 Lean SAS
---------
+========
 
-This repository maintains what I made as memos and cheetsheets when I learned SAS at school of public health.
-
+This repository maintains basic procedures and statements used in SAS. 
 
 From data manipulation to hypothesis test, confidence interval and linear regrassion.
 

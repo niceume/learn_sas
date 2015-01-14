@@ -3,27 +3,30 @@ Inference statistics (two independent variables)
 
 Interpretation of two means is like this.
 
-* The mean VARIABLE of A (mean= -- , SD= -- ) is higher than B (mean= --, SD= --)
-  + (descriptive statistics)
-* ( The mean difference is --, 95% CI : --, -- )
-  + (inferel statistics : confidence interval)
-* The observed difference is statistically significant.(test-statistic= -- , p= -- )
-  + (inferel statistics : hypothesis test)
+* descriptive statistics
+  * The mean VARIABLE of A (mean= -- , SD= -- ) is higher than B (mean= --, SD= --)
+* inferel statistics : confidence interval
+  * The mean difference is --, 95% CI : --, -- .
+* inferel statistics : hypothesis test
+  * The observed difference is statistically significant.(test-statistic= -- , p= -- )
 
 
 Interpretation of two proportions is like this.
 
-* Exposure-A are more likely than Exposure-B to do outcome-Z ( --% vs --%). 
-  + (Exposure-A result in outcome-Z More frequently )
-  + OR
-  + Exposure-A do outcome-Z at hgher rate than Exposure-B ( --% vs --%).
-* There is a significant association between Exposure and Outcome.
-  + (inferel statistics : hypothesis test)
-* Exposure-A are --% less likely than exposure-B to outcome-z. (RR = ---, CI=--,-- )
-  + OR
-  + The risk (or the odds) of outcome-Z among exposure-A is --% lower than the risk (or the odds) among exposure-B. (RR or OR= ---, CI=--,-- )
-  + (inferel statistics : confidence interval)
+* descriptive statistics
+  * Exposure-A are more likely than Exposure-B to do outcome-Z ( --% vs --%). 
+  * Exposure-A result in outcome-Z More frequently ( --% vs --%).
+  * Exposure-A do outcome-Z at hgher rate than Exposure-B ( --% vs --%).
+* inferel statistics : hypothesis test
+  * There is a significant association between Exposure and Outcome.
+* inferel statistics : confidence interval
+  * Exposure-A are --% less likely than exposure-B to outcome-z. (RR = ---, CI=--,-- )
+  * The risk (or the odds) of outcome-Z among exposure-A is --% lower than the risk (or the odds) among exposure-B. (RR or OR= ---, CI=--,-- )
 
+
+Interpretation of three or more proportions is like this.
+
+* 
 
 
 These interpretations can be based on procedures as follows.

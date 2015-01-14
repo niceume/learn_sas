@@ -23,24 +23,24 @@ In another word, the procedure describes "the relationship between two categoric
   + plots=FreqPlot can generates bar-chart.
   + NOPERCENT, NOROW, NOCOL, NOFREQ, NOCUM suppresses the output of percentages, row paercentages, column percentages, frequencies and cumulative frequencies.
   + LIST displays n-way tables as a list (on line for every combination.)
-  + MISSING treats missing values as a valid nonmissing level. (To include missing value in table.)
+  + MISSING allows missing value to be in table.
 * TABLES statement <variable1> * <variable2> * <variable3> ... (More than two way)
 
 ~~~ SAS
-LIBNAME bios500 'S:\course\bios500\Binongo\DATASETS'; 
+LIBNAME bioslib 'S:\course\DATASETS'; 
 
 /*Show barchart*/
-PROC FREQ data=bios500.m_and_m_colors2004;
+PROC FREQ data=bioslib.m_and_m_colors2004;
 tables color / plots=FreqPlot;
 RUN;
 
 /*Show number of missing values by default.*/
-PROC FREQ data = bios500.heart;
+PROC FREQ data = bioslib.heart;
   tables Weight_Status * sex;
 RUN;
 
 /*Multiple tables at once.*/
-PROC FREQ data=bios500.exposure;
+PROC FREQ data=bioslib.exposure;
   tables sex * ( hx_smoke sex Marital_status) / nocol nopercent;
 RUN;
 ~~~
@@ -107,7 +107,7 @@ GROUPING by categorical data
 
 
 ~~~ SAS
-PROC univariate data=bios500.exposure;
+PROC univariate data=bioslib.exposure;
   var weight;
   class sex;
   histogram weight;
@@ -130,11 +130,11 @@ MORE WAYS to MAKE PLOTS
 * PROC SGPANEL procedure
 
 ~~~ SAS
-PROC SGSCATTER data=bios500.exposure;
+PROC SGSCATTER data=bioslib.exposure;
 matrix age height weight / diagonal=(HISTOGRAM);
 RUN;
 
-PROC SGPANEL data=bios500.fev_data;
+PROC SGPANEL data=bioslib.fev_data;
 panelby sex;
 reg x=height y=fev /degree=2 ;
 RUN;
