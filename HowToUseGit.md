@@ -37,7 +37,7 @@ Usual Updates
 git status
 ```
 
-## Update file (Commit to local, Push to remote)
+## Update (existing) files (Commit to local, Push to remote)
 ``` bash
 git commit -a -m "modify read me."
 git push origin master
@@ -55,8 +55,8 @@ If you try to add all the files, instead use as follows.
 git add .
 ```
 
-## Update, add, delete new changes
-You will have to do git add -A to add all files new files, changes and removed files. 
+## Update files, add new files, delete files (DO EVERYTHING)
+You will have to do git add -A to add all new files, changes and removed files. 
 ``` bash
 git add -A
 git commit -m "many changes"

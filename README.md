@@ -1,4 +1,4 @@
-Lean SAS
+Learn SAS
 ========
 
 This repository maintains basic procedures and statements used in SAS. 

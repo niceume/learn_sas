@@ -1,7 +1,20 @@
 Inference statistics (two paired variables)
 ===========================================
 
-Interpretation of hypothesis test for paired variables.
+* Two paired variables are variables which have correspondence with each other. 
+* An example is like pre-treatment and port-treatment. Each individual has 
+
+
+### Can I use PROC GLM ? 
+
+* Yes, but only after taking difference.
+* If you do not take difference, and if you code two occasions as 0 and 1, you end up with treating two variables independent. 
+* The CI of slope is the same as the result of usual TTEST.
+  + Under the setting of paired TTEST, there are n individuals and 2 occasions.
+  + But usual TTEST assumes, there are 2*n individuals, and assign exposure to n people and control to n people. 
+  
+
+### Interpretation of hypothesis test for paired variables.
 
 (Paired T-test)
 * The mean VARIABLE of A (mean= -- , SD= -- ) is higher than B (mean= --, SD= --) (mean difference is ---, 95% CI= --, -- )
