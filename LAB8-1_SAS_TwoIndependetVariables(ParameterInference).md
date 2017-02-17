@@ -148,8 +148,11 @@ PROC UNIVARIATE data = fev;
  histogram fev/normal;
  probplot fev;
 RUN;
-/* Simple random samples. Sample sizes are large enough (589 vs 65). Independent samples. */
-/* Equal variance. */
+/* Assumptions to satisfy: 1. Simple random samples. 2. Sample sizes are large enough (589 vs 65). 3. Independent samples. */
+/* About sample size, each group must be larger than 30 (, some say 40). Or the population from which theses samples are taken should follow normal distribution. */
+/* If these assumptions are not met, use non-parametic version. Mann–Whitney’s U test. In SAS, use NPAR1WAY Procedure. */
+/* One more thing to consider.  */
+/* Equal variance. => Use student t-test. Otherwise, use Welch's t-test. (unequal variance version of t-test)*/
 
 /*Step3 : statistic*/
 /* From the previous result, x1b = 2.5661 , x2b = 3.2769 , sd1 = 0.8505, sd2 = 0.7500 */
@@ -213,6 +216,7 @@ RUN;
 /* Two independent samples. Simple random samples. */
 /* Expected frequencies are 1 or greater. */
 /* At most 20% of the expected frequencies are less than 5. */
+/* Otherwise, use Fisher's exact test. */
 
 /* Step3 : Calculate test statistics. */
 DATA temp;
