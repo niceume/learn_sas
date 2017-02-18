@@ -9,7 +9,15 @@ Assign a libref name to a directory. Moreover, once assign a library name, the l
 
 
 ~~~ SAS
-LIBNAME bioslib "S:\course\bios500\Binongo\DATASETS" ;
+LIBNAME bioslib "S:\course\bios\beginner\DATASETS" ;
+~~~
+
+* When using SAS University, you need to take a little care about path.
+    + Relative path does not seem to work properly. 
+    + Start your path with "/folders/myfolders/" at the beginning.
+
+~~~ SAS
+LIBNAME bioslib "/folders/myfolders/project_x/data/" ;
 ~~~
 
 
