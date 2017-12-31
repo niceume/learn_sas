@@ -5,27 +5,45 @@ Create New Repository
 mkdir <new_dir>
 cd <new_dir>
 touch README.md
-git init
-git add README.md
-git commit -m 'First commit'
+git init              # Initialize local directory. Make it Git repository.
+git add README.md     # Add new file to the local repository.
+git commit -m 'First commit'   # Commit the changes of the following files. (In this case only README.md)
 
 git config --global user.name '<username>'
 git config --global user.email '<emailaddress>'
 ```
 
 
-Add Remote Repository
+Add Remote Repository & Decide how you would like to call it.
 ---------------------
-* When you use Github, you should prepare new repository from the browser.
+* Git is assuming the situation where there are local repository and remote repository.
+    + Remote repository can be easily shared by a lot of people.
+* When you use Github, the respository there must work as a remote repository.
+    + You should prepare new repository on Github from your browser.
+    + From your local machine, this repository is viewed as a remote repository.
+* <repo_name_identifier> is usually "origin" by convention.
+    + You can freely choose different names.
+* You need to tell your local repository where its remote repository is and how it's called.
+    + In the followin example, 
+    + The URI of remote repository is https://github.com/githubusername/reponame.git .
+    + You call it as <repo_name_identifier>
+
 ``` bash
 git remote add <repo_name_identifier> https://github.com/githubusername/reponame.git
 ```
-* repo_name_identifier's name is usually origin.
+
+* When you want to see all the remote repositories that you registared and named.
+    + git remote
+* When you want to see the detail of a specific remote repository
+    + git remote show <repo_name_identifier>
 
 
-Affect Changes to the remote repository
+Affect Changes of local repository to the remote repository
 ---------------------------------------
-``` bash
+
+
+
+```bash
 git push -u origin master
 ```
 
