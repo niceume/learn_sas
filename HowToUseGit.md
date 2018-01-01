@@ -349,7 +349,7 @@ git add <newfile>
 ``` bash
 git status   # You can see the changes to be commited.
 git commit -a -m "modify read me."
-git push origin master
+git push -u origin master
 ```
 
 
