@@ -352,18 +352,6 @@ git commit -a -m "modify read me."
 git push origin master
 ```
 
-If you try to add all the files, instead use as follows.
-``` bash
-git add .
-```
-
-The following commands do all the things above (Add new file, remove deleted files.)
-
-``` bash
-git add -A
-git commit -m "many changes"
-git push origin master
-```
 
 ### Trouble shooting in Github.
 
