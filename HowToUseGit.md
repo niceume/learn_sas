@@ -338,10 +338,24 @@ git add remote origin https://example.com/path/to/repo.git/
 
 ## Add files to be monitored by git
 
+* If you use "git add . ", ".gitignore" file needs to be edited beforehand.
+
 ```
 git add . 
 # or
 git add <newfile>
+```
+
+* You can see which files are being monitored and being ignored.
+
+```
+git status --ignored
+```
+
+* If you don't like the result, you can reset this step.
+
+```
+git reset
 ```
 
 ### Commit changes of monitored files to local. Push to remote.
@@ -360,4 +374,3 @@ When the commit is not recognized as your commit. Do the following commands agai
 git config --global user.name '<username>'
 git config --global user.email '<emailaddress>'
 ```
-
