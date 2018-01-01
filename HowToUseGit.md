@@ -10,9 +10,9 @@ Overall concept of git
 
 1. Working place (=workplace or working tree)
     + "git checkout" switches to the specified branch.
-2. Index (List to Stage or unstage Files. List to detect changes in these files)
+2. Index (List to detect changes in these files. Holds associations between workplace file and objects in repository.)
     + "git add" updates this part.
-3. Local Repository
+3. Local Repository (Repository holds objects and tags.)
     + "git commit" updates this part from staged files.
     + "git merge" combines the specified branch with the active branch.
 4. Locally managed remote repository
@@ -58,7 +58,7 @@ Another way to create a new local repositoty: Clone others' remote repository (c
 git clone username@host:/path/to/repository
 ```
 
-Add Remote Repository Information to local & Decide how you would like to call it. (remote add)
+Add Remote Repository Infoation to local & Decide how you would like to call it. (remote add)
 ======================================
 
 * Git is assuming the situation where there are local repository and remote repository.
@@ -319,9 +319,72 @@ git rebase -i
 ```
 
 
+How to rollback what you did
+------------------------------
 
-Usual Updates
+* In Git, "git revert" or "git reset" is used. 
+    1. If you want to do the opposite thing to the last commit,
+        + Use "git revert"
+        + Unless the commit is public yet.
+        + You are not deleting a hisotry of commit. You are just doing the opposite thing.
+    2. If you want to make INDEX or repository to some previous state, 
+        + Use "git reset"
+        + This can be used to rollback your INDEX and local repository.
+
+* Please keep in mind that 
+    1. Workplace is the latest.
+    2. INDEX has the next latest.
+    3. Repository even at HEAD holds the most out dated information.  
+
+
+Commands in Practice
+=====================
+
+* If you want to revert your INDEX without repository change,
+    + You can use the HEAD.
+    + You can do this using "git reset --mix HEAD"
+* If you want to revert your INDEX with repository change,
+    + You can specify older <commit_id>s to which you want HEAD to move.
+    + You can do this using "git reset --mix <commit_id>"
+* If you want to revert your commits, 
+    + you need to revert HEAD in your repository.
+    + In this case, you need to specify older <commit_id>s
+        + You cannot usually use HEAD. The reason is that  it's already up-to-date for the repository. Nothing reverts.
+    + You can do this using "git reset --soft <commit_id>"
+* If you want to revert your commits along with you workplace and INDEX.
+    + You can do this using "git reset --hard <commit_id>"
+* If you want to revert your workplace and INDEX to the position corresponding to HEAD in your repository 
+    + You can do this using "git reset --hard HEAD"
+* If you just want to revert you workplace
+    + You can use "git checktout -b newbranch"
+
+
+* (ref1.) https://stackoverflow.com/questions/2530060/can-you-explain-what-git-reset-does-in-plain-english
+* (ref2.) https://www.kaitoy.xyz/2016/01/01/git-revert-reset/ (In Japanese)
+
+
+How to get to know commit_ids
+=============================
+
+* In this case using "git reflog" is the easist way. 
+    + The reflog is an ordered list of the commits that HEAD has pointed to
+
+> understanding the reflog means you can't really lose data from your repo once it's been committed. If you accidentally reset to an older commit, or rebase wrongly, or any other operation that visually "removes" commits, you can use the reflog to see where you were before and git reset --hard back to that ref to restore your previous state. Remember, refs imply not just the commit but the entire history behind it."
+
+* (ref.) https://stackoverflow.com/questions/17857723/whats-the-difference-between-git-reflog-and-log
+
+
+
+Usual Steps to Version Contorol by Git
 --------------
+
+## Before following the following steps
+
+* Prepare blank repository.
+    + Create a new repository on Github or Bitbucket. 
+    + Never create README file.
+    + Just create blank repository.
+        + It's really hard to merge two repositories from different origins.
 
 ## Start Git
 
@@ -355,14 +418,30 @@ git status --ignored
 * If you don't like the result, you can reset this step.
 
 ```
-git reset
+git reset  
+# This is equal to "git reset --mixed HEAD"
+#  
+# What this does here is
+# 1. Rollback index: This is necessary because we want list of monitoring files to be rolled back.
+# 2. HEAD position should stay there. Index will be rolled back using the information of current repository at HEAD.
+#         + Current HEAD position does not know newly added files.
+#         + So it's nice to recreate INDEX based on this HEAD repository information. 
 ```
 
 ### Commit changes of monitored files to local. Push to remote.
 
+* Be careful before you are commiting.
+    +  Commiting is a comming, after which you usually never retun.
+
 ``` bash
 git status   # You can see the changes to be commited.
 git commit -a -m "modify read me."
+```
+
+
+### Push to remote.
+
+```
 git push -u origin master
 ```
 
