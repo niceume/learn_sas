@@ -8,9 +8,9 @@ Great Guide for git
 Overall concept of git
 -----------------------
 
-1. Working place
+1. Working place (=workplace or working tree)
     + "git checkout" switches to the specified branch.
-2. Staged Files (changed files)
+2. Index (List to Stage or unstage Files. List to detect changes in these files)
     + "git add" updates this part.
 3. Local Repository
     + "git commit" updates this part from staged files.
@@ -231,24 +231,76 @@ git fetch
 ```
 
 
+How to control index and staged files
+----------------------------
+
+## About 
+    1. Tell git to monitor files. (index)
+    2. Git monitor the files and detect their changes. Those files are staged. (staged files)
+        + When files under Git monitoring get some changes, they are put on stage.
+    3. Staged files can be committed.
+
+
+## Add new files for Git to monitor changes.
+
+```
+git add <filename>  # Add specific file
+# or
+git add .  # Adds all the files in the working tree.
+```
+
+## Remove files to be monitored by Git. Remove all the history of this file.
+
+```
+git rm --cached <path_to_filename>
+# or git rm --cached -r <dir> # works recursively on a folder and all files in it
+
+# Edit .gitignoer
+# And add this <path_to_filename> or <path_to_folder/> to your .gitignore file.
+```
+
+## Stop monitoring changes from now on. 
+
+1. Later maybe you will monitor again
+2. or other people want to commit changes.)
+
+```
+git update-index --assume-unchanged <path_to_filename>
+# Bring the file to be monitored.
+git update-index --no-assume-unchanged <path_to_filename>
+```
+
+* (ref.) https://stackoverflow.com/questions/936249/how-to-stop-tracking-and-ignore-changes-to-a-file-in-git
+
+
+
 Usual Updates
 --------------
 
-### Before updating you can check the status (Which one was changed).
-``` bash
-git status
+## Start Git
+
+```
+# At the top directory
+git init
 ```
 
-### Update (existing) files (Commit to local, Push to remote)
-``` bash
-git commit -a -m "modify read me."
-git push origin master
+## Add remote repository. 
+
+```
+git add remote origin https://example.com/path/to/repo.git/
 ```
 
-### New file (Add NewFile to Tracked files, Commit to local, Push to remote)
-``` bash
+## Add files to be monitored by git
+
+```
 git add <newfile>
-git commit -a -m "add new file"
+```
+
+### Commit changes of monitored files to local. Push to remote.
+
+``` bash
+git status   # You can see the changes to be commited.
+git commit -a -m "modify read me."
 git push origin master
 ```
 
