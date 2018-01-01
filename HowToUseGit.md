@@ -231,52 +231,6 @@ git fetch
 ```
 
 
-Think about pull request
---------------------------------
-
-* When you receive a pull request or send a pull request, there are some things you need to think about.
-    1. Maybe your working branch is out-of-date.
-        + Because people work on a branch which may be branched long long time ago.
-        + Even if you want to merge, it may fail.
-        + Before sending pull request, it's better to solve this problem. You need to confirm that the changes (commits) can work for the current (HEAD) main branch.
-    2. Maybe you are including too many commits in the pull request.
-        + Development may be done based on a lot of commits and a lot of trial and errors. Only one commit to solve a problem is rare.
-        + For other people, maybe your trial and erros are not important. 
-        + Before seinding a pull reques, it's better to make those commits tidy. Combine them into some pieces, which help reviewers read your commits rapidly.
-    
-* For each concern, 
-    1. When the branch was branched long time ago, "rebase" is required. 
-    2. When the number of commits is a lot, "squash" is required. As to be mentioned later, "git rebase -i " also does this work.
-    
-* In conclusion,
-    + Do "git rebase -i" before pull request.
-
-
-Squash
-=================
-
-＊ Several Commits can be combined into one.
-    + This is called "squash".
-* The following command squash all the commits done for the current branch. 
-    + People say if you wanna combine specific commits into one, use git rebase -i. 
-        + But I think git rebase does not only combine specific commits, but also does rebase the commits on the branch.
-    
-```
-git merge --squash
-```
-
-
-Rebase
-==================
-
-* Rebase can move your previous commits to new commits from the new base. 
-* (WARNING) Never rebase your public repository. Never rewrite the history of repository already on public.
-
-```
-git rebase -i
-```
-
-
 Usual Updates
 --------------
 
