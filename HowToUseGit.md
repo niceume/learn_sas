@@ -446,6 +446,18 @@ git push -u origin master
 ```
 
 
+### From Another Client, Start this project
+
+* You can create local repository from remote repository.
+* "git clone" can do this work.
+    + "git clone" creates a new directory with the name of <repo_name>.
+    + Expand sources under this directory.
+
+```
+git clone  https://xxxxxxxx.org/<user>/<repo_name>.git
+```
+
+
 ### Trouble shooting in Github.
 
 When the commit is not recognized as your commit. Do the following commands again.
