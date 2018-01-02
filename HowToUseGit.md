@@ -1,12 +1,12 @@
 Great Guide for git
-------------------
+=======================
 
 * http://rogerdudler.github.io/git-guide/
 * https://www.atlassian.com/git/tutorials/syncing
 
 
 Overall concept of git
------------------------
+==========================
 
 1. Working place (=workplace or working tree)
     + "git checkout" switches to the specified branch.
@@ -23,10 +23,10 @@ Overall concept of git
 
 
 New Local and/or remote repositories and how local and remote repositories are managed locally.
-------------------------------------------------------------------------------------------
+=============================================================================================
 
 Create New Local Repository (init)
-===========================
+-----------------------------------
 
 ``` bash
 mkdir <new_dir>
@@ -42,14 +42,14 @@ git config --global user.email '<emailaddress>'
 
 
 Create New Remote Repository on Github 
-=======================================
+--------------------------------------
 
 * Log in to your Github.
 * From Repositories, push "New" !!
 
 
 Another way to create a new local repositoty: Clone others' remote repository (clone)
-=========================================
+--------------------------------------
 
 * In this case, newly created local git repository automatically knows where the remote repository is.
     + origin remote repository is the repository from which the current local repository is cloned.
@@ -59,7 +59,7 @@ git clone username@host:/path/to/repository
 ```
 
 Add Remote Repository Infoation to local & Decide how you would like to call it. (remote add)
-======================================
+---------------------------------------
 
 * Git is assuming the situation where there are local repository and remote repository.
     + Remote repository can be easily shared by a lot of people.
@@ -87,10 +87,10 @@ git remote add <repo_name_identifier> https://github.com/githubusername/reponame
 
 
 Manage Local Branches 
-------------------
+============================
 
 Conventions about branch names
-=============================
+----------------------------
 
 * the main branch for release is usually called "master"
 * the main branch for development is usually called "devel"
@@ -98,7 +98,7 @@ Conventions about branch names
 
 
 How to create a branch and switch to it (checkout -b)
-==========================
+-----------------------------
 
 * create a new branch named "feature_x" and switch to it using
 
@@ -107,7 +107,7 @@ git checkout -b <branch_name>
 ```
 
 How to switch to another branch (checkout)
-==========================
+----------------------------
 
 * If you have another branch in your local repository.
     * Using checkout, you can switch to another branch.
@@ -117,7 +117,7 @@ git checkout <branch_name>
 ```
 
 How to delete a branch (branch -d)
-==========================
+----------------------------
 
 * Delete a branch
 
@@ -126,7 +126,7 @@ git branch -d <branch_name>
 ```
 
 List all the local/remote branches (branch)
-===========================
+------------------------------
 
 ```
 git branch  # shows all the local branches
@@ -135,7 +135,7 @@ git branch -r  # shows all the remote branches
 
 
 How to associate local and remote branches, called tracking (branch --track)
---------------------------------
+=================================
 
 * By associating local and remote branches
     + git push / git pull do not need to require remote branch names.
@@ -155,10 +155,10 @@ git branch --track branch-name origin/branch-name
 
 
 Merge Commits
----------------------------
+==============================
 
 When does merging commits happens?
-====================================
+-------------------------------------
 
 1. Between local repository and remote repository
     + 1a:  From local to remote:   git push <remote_repository_identifier> <branch_name>
@@ -172,7 +172,7 @@ When does merging commits happens?
 
 
 Case 1a:  Merge commits of local repository and the remote repository
-============================================
+---------------------------------------
 
 * git push -u <repo_name_idenntifier> <branch_name>
     1. u option here 
@@ -187,7 +187,7 @@ git push -u origin master
 ```
 
 Case 1b:  Merge commmits of remote repository to the local repository
-==============================================
+---------------------------------------
 
 * (ref.) https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch
 * git pull merges the commits that have been done for remote branch to local branch.
@@ -203,7 +203,7 @@ git merge original/master
 ```
 
 Case 2: Merge commits 
-==============================================
+---------------------------------------
 
 * Merge is usually used between local and remote branches.
     + For example, commits that have been done for origin/master is merged to master (at local). 
@@ -222,7 +222,7 @@ git merge iss53
 
 
 Obtaining remote information without merging
-============================================
+---------------------------------------
 
 * "git fetch" download objects and tags to the local. (But not merged with local repository yet.)
 
@@ -232,7 +232,7 @@ git fetch
 
 
 How to control index and staged files
-----------------------------
+========================================
 
 ## About 
     1. Tell git to monitor files. (index)
@@ -274,7 +274,7 @@ git update-index --no-assume-unchanged <path_to_filename>
 
 
 Think about pull request
---------------------------------
+================================
 
 * When you receive a pull request or send a pull request, there are some things you need to think about.
     1. Maybe your working branch is out-of-date.
@@ -295,7 +295,7 @@ Think about pull request
 
 
 Squash
-=================
+-------------------
 
 ＊ Several Commits can be combined into one.
     + This is called "squash".
@@ -309,7 +309,7 @@ git merge --squash
 
 
 Rebase
-==================
+----------------------
 
 * Rebase can move your previous commits to new commits from the new base. 
 * (WARNING) Never rebase your public repository. Never rewrite the history of repository already on public.
@@ -320,7 +320,7 @@ git rebase -i
 
 
 How to rollback what you did
-------------------------------
+===============================
 
 * In Git, "git revert" or "git reset" is used. 
     1. If you want to do the opposite thing to the last commit,
@@ -338,7 +338,7 @@ How to rollback what you did
 
 
 Commands in Practice
-=====================
+-----------------------
 
 * If you want to revert your INDEX without repository change,
     + You can use the HEAD.
@@ -364,7 +364,7 @@ Commands in Practice
 
 
 How to get to know commit_ids
-=============================
+-------------------------------
 
 * In this case using "git reflog" is the easist way. 
     + The reflog is an ordered list of the commits that HEAD has pointed to
@@ -376,7 +376,7 @@ How to get to know commit_ids
 
 
 Usual Steps to Version Contorol by Git
---------------
+======================================
 
 ## Before following the following steps
 
@@ -428,7 +428,7 @@ git reset
 #         + So it's nice to recreate INDEX based on this HEAD repository information. 
 ```
 
-### Commit changes of monitored files to local. Push to remote.
+## Commit changes of monitored files to local. Push to remote.
 
 * Be careful before you are commiting.
     +  Commiting is a comming, after which you usually never retun.
@@ -439,14 +439,14 @@ git commit -a -m "modify read me."
 ```
 
 
-### Push to remote.
+## Push to remote.
 
 ```
 git push -u origin master
 ```
 
 
-### From Another Client, Start this project
+## From Another Client, Start this project
 
 * You can create local repository from remote repository.
 * "git clone" can do this work.
@@ -458,7 +458,7 @@ git clone  https://xxxxxxxx.org/<user>/<repo_name>.git
 ```
 
 
-### Trouble shooting in Github.
+## Trouble shooting in Github.
 
 When the commit is not recognized as your commit. Do the following commands again.
 ```
