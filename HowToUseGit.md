@@ -396,7 +396,7 @@ git init
 ## Add remote repository. 
 
 ```
-git add remote origin https://example.com/path/to/repo.git/
+git remote add origin https://example.com/path/to/repo.git/
 ```
 
 ## Add files to be monitored by git
