@@ -85,8 +85,12 @@ git status
 git commit -m "Updated Ver.X" 
 
 # (ref.) Git cheetsheet by Github 
+
 ```
 
+* If you are developing locally and update locl changes (commits) to remote rspository like Github & Bitbucket,
+    + Follow the "Case 1a:  Merge commits of local repository to the remote repository"
+    + Briefly, "git push -u origin master" 
 
 
 ## Stop monitoring changes from now on. 
@@ -253,7 +257,7 @@ When does merging commits happens?
         + The commits between branched timepoint and current timepoint need to be merged.
 
 
-Case 1a:  Merge commits of local repository and the remote repository
+Case 1a:  Merge commits of local repository to the remote repository
 ---------------------------------------
 
 * git push -u <repo_name_idenntifier> <branch_name>
