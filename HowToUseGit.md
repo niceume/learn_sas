@@ -259,6 +259,15 @@ git rm --cached <path_to_filename>
 # And add this <path_to_filename> or <path_to_folder/> to your .gitignore file.
 ```
 
+## Tell git new files, updated files and delted files. 
+
+```
+git add -A 
+# will add all changes, including deletions, to the index.
+# (ref.) https://stackoverflow.com/questions/6262192/how-to-handle-a-bunch-of-deleted-files-under-git
+```
+
+
 ## Stop monitoring changes from now on. 
 
 1. Later maybe you will monitor again
