@@ -12,6 +12,7 @@ Overall concept of git
     + "git checkout" switches to the specified branch.
 2. Index (List to detect changes in these files. Holds associations between workplace file and objects in repository.)
     + "git add" updates this part.
+    + "git status" shows all the files to be commited next time including subdirectories recursively.
 3. Local Repository (Repository holds objects and tags.)
     + "git commit" updates this part from staged files.
     + "git merge" combines the specified branch with the active branch.
@@ -20,6 +21,87 @@ Overall concept of git
     + Git does not look at remote repository itself every time. Instead, it uses this locally managed remote repository.
 5. Remote Repositry
     + "git push" updates this part.
+
+
+
+How to control index and staged files
+========================================
+
+## About 
+    1. Tell git to monitor files. (indexed files)
+    2. Git monitor the files and detect their changes. Those files are staged. (staged files)
+        + When files under Git monitoring get some changes, they are put on stage.
+    3. Staged files can be committed.
+
+
+## Add new files for Git to monitor changes.
+
+```
+git add <filename>  # Add specific file
+# or
+git add .  # Adds all the files in the working tree.
+# or
+git add # including subdirectoeis recursively.
+#
+# (Note) 
+# git add *
+# This adds all the subdirectorie dirct from (i.e. just below) the current working directory.
+```
+
+## Remove files to be monitored by Git. Remove all the history of this file.
+
+```
+git rm --cached <path_to_filename>
+# or git rm --cached -r <dir> # works recursively on a folder and all files in it
+
+# Edit .gitignoer
+# And add this <path_to_filename> or <path_to_folder/> to your .gitignore file.
+```
+
+## Tell git new files, updated files and delted files. 
+
+```
+git add -A 
+# will tell all the changes, including deletions, to the index. Non-monitored files are also added. 
+# (ref.) https://stackoverflow.com/questions/6262192/how-to-handle-a-bunch-of-deleted-files-under-git
+```
+
+```
+git add -u
+# will tell all the changes for montored files. (No new files added)
+# (ref.) https://git-scm.com/docs/git-add
+```
+
+
+## Confirm staged fils & Commit
+
+```
+git status
+# shows all the files to be commited next time including subdirectories recursively.
+```
+
+```
+# commit your staged content as a new commit snapshot
+git commit -m "Updated Ver.X" 
+
+# (ref.) Git cheetsheet by Github 
+```
+
+
+
+## Stop monitoring changes from now on. 
+
+1. Later maybe you will monitor again
+2. or other people want to commit changes.)
+
+```
+git update-index --assume-unchanged <path_to_filename>
+# Bring the file to be monitored.
+git update-index --no-assume-unchanged <path_to_filename>
+```
+
+* (ref.) https://stackoverflow.com/questions/936249/how-to-stop-tracking-and-ignore-changes-to-a-file-in-git
+
 
 
 New Local and/or remote repositories and how local and remote repositories are managed locally.
@@ -229,75 +311,6 @@ Obtaining remote information without merging
 ```
 git fetch
 ```
-
-
-How to control index and staged files
-========================================
-
-## About 
-    1. Tell git to monitor files. (indexed files)
-    2. Git monitor the files and detect their changes. Those files are staged. (staged files)
-        + When files under Git monitoring get some changes, they are put on stage.
-    3. Staged files can be committed.
-
-
-## Add new files for Git to monitor changes.
-
-```
-git add <filename>  # Add specific file
-# or
-git add .  # Adds all the files in the working tree.
-# or
-git add # including subdirectoeis recursively.
-#
-# (Note) 
-# git add *
-# This adds all the subdirectorie dirct from (i.e. just below) the current working directory.
-```
-
-## Remove files to be monitored by Git. Remove all the history of this file.
-
-```
-git rm --cached <path_to_filename>
-# or git rm --cached -r <dir> # works recursively on a folder and all files in it
-
-# Edit .gitignoer
-# And add this <path_to_filename> or <path_to_folder/> to your .gitignore file.
-```
-
-## Tell git new files, updated files and delted files. 
-
-```
-git add -A 
-# will tell all the changes, including deletions, to the index. Non-monitored files are also added. 
-# (ref.) https://stackoverflow.com/questions/6262192/how-to-handle-a-bunch-of-deleted-files-under-git
-```
-
-```
-git add -u
-# will tell all the changes for montored files. (No new files added)
-# (ref.) https://git-scm.com/docs/git-add
-```
-
-## Show all the modified files for next commitment
-
-```
-git status
-```
-
-
-## Stop monitoring changes from now on. 
-
-1. Later maybe you will monitor again
-2. or other people want to commit changes.)
-
-```
-git update-index --assume-unchanged <path_to_filename>
-# Bring the file to be monitored.
-git update-index --no-assume-unchanged <path_to_filename>
-```
-
-* (ref.) https://stackoverflow.com/questions/936249/how-to-stop-tracking-and-ignore-changes-to-a-file-in-git
 
 
 Think about pull request
