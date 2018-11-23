@@ -263,8 +263,14 @@ git rm --cached <path_to_filename>
 
 ```
 git add -A 
-# will add all changes, including deletions, to the index.
+# will tell all the changes, including deletions, to the index. Non-monitored files are also added. 
 # (ref.) https://stackoverflow.com/questions/6262192/how-to-handle-a-bunch-of-deleted-files-under-git
+```
+
+```
+git add -u
+# will tell all the changes for montored files. (No new files added)
+# (ref.) https://git-scm.com/docs/git-add
 ```
 
 
