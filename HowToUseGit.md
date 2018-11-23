@@ -235,7 +235,7 @@ How to control index and staged files
 ========================================
 
 ## About 
-    1. Tell git to monitor files. (index)
+    1. Tell git to monitor files. (indexed files)
     2. Git monitor the files and detect their changes. Those files are staged. (staged files)
         + When files under Git monitoring get some changes, they are put on stage.
     3. Staged files can be committed.
@@ -247,6 +247,12 @@ How to control index and staged files
 git add <filename>  # Add specific file
 # or
 git add .  # Adds all the files in the working tree.
+# or
+git add # including subdirectoeis recursively.
+#
+# (Note) 
+# git add *
+# This adds all the subdirectorie dirct from (i.e. just below) the current working directory.
 ```
 
 ## Remove files to be monitored by Git. Remove all the history of this file.
@@ -271,6 +277,12 @@ git add -A
 git add -u
 # will tell all the changes for montored files. (No new files added)
 # (ref.) https://git-scm.com/docs/git-add
+```
+
+## Show all the modified files for next commitment
+
+```
+git status
 ```
 
 
