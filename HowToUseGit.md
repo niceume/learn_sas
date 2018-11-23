@@ -23,6 +23,8 @@ Overall concept of git
     + "git push" updates this part.
 
 
+![Git Flowchart](https://github.com/niceume/learn_sas/blob/master/Git_Illustration.jpg "Git Flowchart")
+
 
 How to control index and staged files
 ========================================
