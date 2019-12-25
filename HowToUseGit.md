@@ -50,7 +50,9 @@ git add # including subdirectoeis recursively.
 # This adds all the subdirectorie dirct from (i.e. just below) the current working directory.
 ```
 
-## Remove files to be monitored by Git. Remove all the history of this file.
+## Remove files to be monitored by Git. 
+
+* Just remove from index
 
 ```
 git rm --cached <path_to_filename>
@@ -59,6 +61,21 @@ git rm --cached <path_to_filename>
 # Edit .gitignoer
 # And add this <path_to_filename> or <path_to_folder/> to your .gitignore file.
 ```
+
+* Remove from index and filesystem
+
+```
+git rm <path_to_filename>
+
+# In this case, you do not need to add this file to .gitignore.
+```
+
+* Remove from index and remove all the repository history of this file (e.g. sensitive file )
+
+This is not simple. 
+
+See: https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository
+
 
 ## Tell git new files, updated files and delted files. 
 
